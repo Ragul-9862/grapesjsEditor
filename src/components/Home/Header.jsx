@@ -1,17 +1,17 @@
 import { BsChat, BsBell, BsGear } from "react-icons/bs";
 import logo from "../../assets/logo/blended.png";
 
-export const Header = () => {
+const Header = () => {
   return (
     <header className="container-fluid py-2 border-bottom bg-white">
       <div className="row align-items-center">
         {/* Left Section */}
-        <div className="col-6 col-md-3 d-flex align-items-center gap-2">
+        <div className="col-6 col-md-4 d-flex align-items-center gap-2">
           <img src={logo} className="img-fluid header-logo" alt="logo" />
         </div>
 
         {/* Center Section */}
-        <div className="col-12 col-md-6 text-center mt-2 mt-md-0">
+        <div className="col-12 col-md-4 text-center mt-2 mt-md-0">
           <h6 className="board-title mb-0">TN Board</h6>
           <p className="subject-line mb-0 fw-bold">
             <span>Class 10</span> | Mathematics
@@ -19,7 +19,7 @@ export const Header = () => {
         </div>
 
         {/* Right Section */}
-        <div className="col-6 col-md-3 d-flex align-items-center justify-content-end gap-3 mt-2 mt-md-0">
+        <div className="col-6 col-md-4 d-flex align-items-center justify-content-end gap-2 mt-2 mt-md-0">
           <div className="coins-box d-flex align-items-center">
             <img
               src="https://img.icons8.com/emoji/48/coin-emoji.png"
@@ -29,9 +29,9 @@ export const Header = () => {
             <span>250 coins</span>
           </div>
 
-          <BsChat size={20} />
-          <BsBell size={20} />
-          <BsGear size={20} />
+          <BsChat size={15} />
+          <BsBell size={15} />
+          <BsGear size={15} />
 
           <img
             src="https://i.pravatar.cc/40"
@@ -43,3 +43,6 @@ export const Header = () => {
     </header>
   );
 };
+
+
+export default Header

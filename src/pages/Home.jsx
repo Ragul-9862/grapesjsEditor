@@ -1,6 +1,6 @@
-import  Index  from '../layouts/Home'
+import  Index from '../layouts/Home/Index'
 
-export const Home = () => {
+ const Home = () => {
     return (
         <div>
             <Index/>
@@ -9,3 +9,6 @@ export const Home = () => {
 
     )
 }
+
+
+export default Home

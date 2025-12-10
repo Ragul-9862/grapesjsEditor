@@ -26,57 +26,57 @@ import explainIcon from "../assets/icons/explain.svg?raw";
 // FULL BLOCKS LIST
 // =============================
 
-export const fileMenuItems= [
+export const fileMenuItems = [
   {
     id: "go-to",
     label: "Go to",
     category: "File",
-    media: "GoToIcon", 
-    command: "goTo", 
-    hasSubMenu: true, 
+    media: "GoToIcon",
+    command: "goTo",
+    hasSubMenu: true,
   },
   {
     id: "info",
     label: "Info",
     category: "File",
-    media: "InfoIcon", 
+    media: "InfoIcon",
     command: "showInfo",
   },
   {
     id: "open",
     label: "Open",
     category: "File",
-    media: "OpenIcon", 
+    media: "OpenIcon",
     command: "openFile",
   },
   {
     id: "auto-save",
     label: "Auto Save",
     category: "File",
-    media: "AutoSaveIcon", 
+    media: "AutoSaveIcon",
     command: "toggleAutoSave",
-    toggle: true, 
-    initialState: true, 
+    toggle: true,
+    initialState: true,
   },
   {
     id: "view",
     label: "View",
     category: "File",
-    media: "ViewIcon", 
+    media: "ViewIcon",
     command: "showViewOptions",
   },
   {
     id: "extensions",
     label: "Extensions",
     category: "File",
-    media: "ExtensionsIcon", 
+    media: "ExtensionsIcon",
     command: "showExtensions",
   },
   {
     id: "library",
     label: "Library",
     category: "File",
-    media: "LibraryIcon", 
+    media: "LibraryIcon",
     command: "openLibrary",
   },
 ];
@@ -305,32 +305,16 @@ const blocks = [
   // --- CUSTOM BLOCKS ---
 
   // --- NEW: Graph Block ---
-  {
-    id: "graph-block",
-    label: "Graph",
-    category: "Insert",
-    media: svgGraph,
-    content: `
-            <div class="chart-container" style="width: 100%; height: 300px; padding: 10px; border: 1px dashed #e74c3c;">
-                <canvas class="my-chart" style="background: #ecf0f1;"></canvas>
-                <p style="text-align: center; font-size: 10px;">(Chart library initialization required)</p>
-            </div>
-        `,
-  },
-
+ 
   // --- NEW: Geometry Block ---
-  {
-    id: "geometry-block",
-    label: "Geometry",
-    category: "Insert",
-    media: svgGeometry,
-    content: `
-            <div class="geometry-viewer" style="width: 100%; height: 300px; padding: 10px; border: 1px dashed #3498db; background: #f0f4f7; text-align: center;">
-                <p style="padding-top: 100px;">Interactive 3D/2D Geometry Placeholder</p>
-                <p style="font-size: 10px;">(3D/2D rendering library required)</p>
-            </div>
-        `,
-  },
+  // {
+  //   id: "geometry-block",
+  //   label: "Geometry",
+  //   category: "Insert",
+  //   media: svgGeometry,
+  //   content: { type: "geometry-component" },
+  // },
+
 
   {
     id: "yjs-collab",

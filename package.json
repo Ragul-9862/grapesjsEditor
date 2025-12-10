@@ -16,6 +16,7 @@
     "grapesjs-preset-webpage": "1.0.3",
     "grapesjs-rulers": "1.0.8",
     "grapesjs-script-editor": "1.0.4",
+    "jsxgraph": "^1.12.2",
     "mathlive": "^0.108.2",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
