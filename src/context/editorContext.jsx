@@ -4,8 +4,8 @@ const EditorContext = createContext();
 
 export const EditorProvider = ({ children }) => {
   const [showModal, setShowModal] = useState(false);
-  const [latex, setLatex] = useState(""); 
-  const [selectedComponent, setSelectedComponent] = useState(null); 
+  const [latex, setLatex] = useState("");
+  const [selectedComponent, setSelectedComponent] = useState(null);
 
   useEffect(() => {
     window.__EDITOR_CTX__ = {
@@ -15,18 +15,14 @@ export const EditorProvider = ({ children }) => {
         setShowModal(true);
       },
       closeModal: () => {
-        setShowModal(false);
         setSelectedComponent(null);
+        setShowModal(false);
       },
-      updateLatex: (newLatex) => setLatex(newLatex),
-      getState: () => ({ showModal, latex, selectedComponent }),
+      updateLatex: (value) => setLatex(value),
     };
 
-    return () => {
-      delete window.__EDITOR_CTX__;
-    };
-   
-  }, []); 
+    return () => delete window.__EDITOR_CTX__;
+  }, []);
 
   return (
     <EditorContext.Provider

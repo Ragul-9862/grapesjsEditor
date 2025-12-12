@@ -1,12 +1,11 @@
-import  Index from '../layouts/Home/Index'
+import Index from "../layouts/Home/Index"
 
- const Home = () => {
+
+const Home = () => {
     return (
         <div>
-            <Index/>
+            <Index />
         </div>
-            
-
     )
 }
 

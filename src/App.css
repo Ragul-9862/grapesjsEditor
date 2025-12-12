@@ -6,7 +6,7 @@
 
 .layout-body {
   /* border: 1px solid #58585833; */
-  height: 90vh !important;
+  height: 90vh !important;/* */
   text-align: center;
   width: 100%;
 
@@ -529,4 +529,10 @@ math-field{
 
 .math-tab-content {
   margin-top: 20px;
+}
+
+
+.gjs-cv-canvas{
+  width: 595px;
+  height: 842px;
 }
