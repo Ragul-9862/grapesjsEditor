@@ -26,5 +26,17 @@ jobs:
             cd /var/www/apidev.cloud
             git pull origin main
             npm install --production
-            pm2 restart all
+
+            APP_NAME="grapesjsEditor"
+            START_FILE="index.js"
+
+            if pm2 list | grep -q "$APP_NAME"; then
+              echo "Restarting PM2 app..."
+              pm2 restart "$APP_NAME"
+            else
+              echo "Starting PM2 app..."
+              pm2 start "$START_FILE" --name "$APP_NAME"
+            fi
+
+            pm2 save
           EOF
