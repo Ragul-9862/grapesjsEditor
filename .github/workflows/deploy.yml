@@ -27,27 +27,27 @@ jobs:
 
           set -e
 
-          echo " Moving to project directory"
-          cd /var/www/apidev.cloud
+          echo "📁 Moving to project directory"
+          cd /var/www/apidev.cloud/grapesjsEditor
 
-          echo "⬇Pulling latest code"
+          echo "⬇ Pulling latest code"
           git pull origin main
 
-          echo "Installing dependencies"
+          echo "📦 Installing dependencies"
           npm install
 
-          echo "Building React app"
+          echo "🏗 Building Vite app"
           npm run build
 
-          echo "Cleaning old build"
+          echo "🧹 Cleaning old build"
           sudo rm -rf /var/www/html/apidev.cloud
           sudo mkdir -p /var/www/html/apidev.cloud
 
-          echo "Copying new build"
-          sudo cp -r build/* /var/www/html/apidev.cloud/
+          echo "📂 Copying dist files"
+          sudo cp -r dist/* /var/www/html/apidev.cloud/
 
-          echo "Reloading Nginx"
+          echo "🔄 Reloading Nginx"
           sudo systemctl reload nginx
 
-          echo "Deployment completed"
+          echo "✅ Deployment completed"
           EOF
