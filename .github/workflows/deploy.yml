@@ -21,7 +21,7 @@ jobs:
 
       - name: Run commands on VPS
         run: |
-          ssh -o StrictHostKeyChecking=no ${{ secrets.root }}@${{ secrets.72.61.240.144 }} << 'EOF'
+          ssh -o StrictHostKeyChecking=no ${{ secrets.VPS_USER }}@${{ secrets.VPS_HOST }} << 'EOF'
             cd /var/www/apidev.cloud
             git pull origin main
             npm install --production
