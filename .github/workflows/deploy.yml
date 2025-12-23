@@ -22,21 +22,32 @@ jobs:
 
       - name: Deploy to VPS
         run: |
-          ssh -i ~/.ssh/id_rsa -o StrictHostKeyChecking=no ${{ secrets.VPS_USER }}@${{ secrets.VPS_HOST }} << 'EOF'
-            cd /var/www/apidev.cloud
-            git pull origin main
-            npm install --production
+          ssh -i ~/.ssh/id_rsa -o StrictHostKeyChecking=no \
+          ${{ secrets.VPS_USER }}@${{ secrets.VPS_HOST }} << 'EOF'
 
-            APP_NAME="grapesjsEditor"
-            START_FILE="index.js"
+          set -e
 
-            if pm2 list | grep -q "$APP_NAME"; then
-              echo "Restarting PM2 app..."
-              pm2 restart "$APP_NAME"
-            else
-              echo "Starting PM2 app..."
-              pm2 start "$START_FILE" --name "$APP_NAME"
-            fi
+          echo " Moving to project directory"
+          cd /var/www/apidev.cloud
 
-            pm2 save
+          echo "⬇Pulling latest code"
+          git pull origin main
+
+          echo "Installing dependencies"
+          npm install
+
+          echo "Building React app"
+          npm run build
+
+          echo "Cleaning old build"
+          sudo rm -rf /var/www/html/apidev.cloud
+          sudo mkdir -p /var/www/html/apidev.cloud
+
+          echo "Copying new build"
+          sudo cp -r build/* /var/www/html/apidev.cloud/
+
+          echo "Reloading Nginx"
+          sudo systemctl reload nginx
+
+          echo "Deployment completed"
           EOF
