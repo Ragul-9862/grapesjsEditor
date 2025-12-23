@@ -3,11 +3,12 @@ name: Deploy to Hostinger VPS
 on:
   push:
     branches:
-      - main # The branch you want to trigger deployment from
+      - main
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
@@ -15,11 +16,10 @@ jobs:
       - name: Deploy to Hostinger VPS
         uses: hostinger/deploy-on-vps@v1
         with:
-          api-key: ${{ secrets.VaU00gysvcvGx1KBl3LnkTxjnRrc6Ug976GVhcwO8a70aa03 }}
-          virtual-machine: ${{ variables.1200004 }}
-          # Optional: specify project name if you have multiple projects on the VPS
-          # project-name: your-project-name
-          # Optional: pass environment variables
-          # environment-variables: |
-          #   KEY=value
-          #   ANOTHER_KEY=another_value
+          api-key: ${{ secrets.blendedDev }}
+          virtual-machine: ${{ vars.blendedDev }}
+        -script: |
+            cd /var/www/apidev.cloud
+            git pull origin main
+            npm install --production
+            pm2 restart all
